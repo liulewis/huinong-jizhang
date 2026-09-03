@@ -1,0 +1,73 @@
+<view class="container">
+  <view class="summary">
+    <view class="row"><text>收入</text><text class="inc">{{income}}</text></view>
+    <view class="row"><text>支出</text><text class="exp">{{expense}}</text></view>
+    <view class="row"><text>结余</text><text>{{balance}}</text></view>
+  </view>
+
+  <view class="block">
+    <view class="block-head">
+      <text class="title">支出占比（{{month}}）</text>
+      <view class="seg">
+        <text class="seg-item {{mode==='category'?'active':''}}" data-mode="category" bindtap="switchMode">分类</text>
+        <text class="seg-item {{mode==='crop'?'active':''}}" data-mode="crop" bindtap="switchMode">作物</text>
+        <text class="seg-item {{mode==='account'?'active':''}}" data-mode="account" bindtap="switchMode">账户</text>
+      </view>
+    </view>
+    <canvas type="2d" id="donutCanvas" class="donut"></canvas>
+    <view wx:if="{{breakdown.length === 0}}" class="empty">暂无支出数据</view>
+    <view wx:for="{{breakdown}}" wx:key="name" class="legend">
+      <view class="dot" style="background:{{item.color}}"></view>
+      <text class="lg-name">{{item.name}}</text>
+      <text class="lg-val">{{item.total}}</text>
+      <text class="lg-pct">{{item.pct}}%</text>
+    </view>
+  </view>
+
+  <view class="block" wx:if="{{budgetItems.length > 0}}">
+    <view class="block-head">
+      <text class="title">预算执行（{{month}}）</text>
+    </view>
+    <view class="budget-row" wx:for="{{budgetItems}}" wx:key="category">
+      <view class="br-head">
+        <text class="br-cat">{{item.category}}</text>
+        <text class="br-val">实 {{item.actual}} / 限 {{item.budget}}</text>
+      </view>
+      <view class="br-bar">
+        <view class="br-fill {{item.over ? 'over' : ''}}" style="width:{{item.pct}}%"></view>
+      </view>
+      <text class="br-pct {{item.over ? 'over' : ''}}">{{item.over ? '超支 ' + item.pct + '%' : '使用 ' + item.pct + '%'}}</text>
+    </view>
+  </view>
+
+  <view class="block">
+    <view class="block-head">
+      <text class="title">近 6 月收支趋势</text>
+    </view>
+    <canvas type="2d" id="trendCanvas" class="trend"></canvas>
+    <view class="trend-legend">
+      <view class="dot" style="background:#07c160"></view><text>收入</text>
+      <view class="dot" style="background:#e64340"></view><text>支出</text>
+    </view>
+  </view>
+
+  <view class="block">
+    <view class="block-head">
+      <text class="title">近 6 月收支对比</text>
+    </view>
+    <view class="tbl">
+      <view class="trow th">
+        <text class="tc">月份</text>
+        <text class="tc">收入</text>
+        <text class="tc">支出</text>
+        <text class="tc">结余</text>
+      </view>
+      <view class="trow" wx:for="{{trend.months}}" wx:key="*this">
+        <text class="tc">{{item}}</text>
+        <text class="tc inc">{{trend.income[index]}}</text>
+        <text class="tc exp">{{trend.expense[index]}}</text>
+        <text class="tc">{{trend.income[index] - trend.expense[index]}}</text>
+      </view>
+    </view>
+  </view>
+</view>

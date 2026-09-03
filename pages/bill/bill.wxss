@@ -1,0 +1,75 @@
+.container { padding: 24rpx 32rpx; }
+
+.month {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  color: var(--text-2);
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+.month .ico { font-size: 28rpx; }
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26rpx 4rpx;
+  border-bottom: 1rpx solid var(--line);
+}
+.left { display: flex; align-items: center; gap: 20rpx; }
+.ava {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  flex-shrink: 0;
+}
+.ava.income { background: var(--primary-soft); }
+.ava.expense { background: #fff0e8; }
+.cat { font-size: 30rpx; color: var(--text); font-weight: 600; }
+.date { font-size: 24rpx; color: var(--muted); margin-top: 6rpx; }
+.right { display: flex; align-items: center; }
+.inc { color: var(--income); font-size: 34rpx; font-weight: 700; }
+.exp { color: var(--expense); font-size: 34rpx; font-weight: 700; }
+.del {
+  color: var(--danger);
+  font-size: 24rpx;
+  margin-left: 24rpx;
+  background: #fdeaea;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  transition: transform .12s ease;
+}
+.del:active { transform: scale(.94); }
+
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16rpx; }
+.search-btn {
+  font-size: 24rpx; color: #07c160; background: #eafaf0;
+  padding: 8rpx 24rpx; border-radius: 999rpx;
+}
+
+.search-panel {
+  background: #f7fbf8; border-radius: 20rpx; padding: 20rpx 24rpx; margin-bottom: 20rpx;
+}
+.s-field { display: flex; align-items: center; padding: 12rpx 0; }
+.s-label { width: 110rpx; font-size: 26rpx; color: #555; }
+.s-input { flex: 1; font-size: 26rpx; text-align: right; }
+.s-picker {
+  flex: 1; text-align: right; font-size: 26rpx; color: #07c160;
+  background: #fff; border-radius: 10rpx; padding: 8rpx 16rpx;
+}
+.s-range { flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 10rpx; }
+.s-date {
+  font-size: 24rpx; text-align: center; background: #fff; border-radius: 10rpx;
+  padding: 8rpx 10rpx; width: 180rpx;
+}
+.s-sep { font-size: 24rpx; color: #999; }
+.s-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12rpx; }
+.s-clear { font-size: 24rpx; color: #e64340; }
+.s-count { font-size: 24rpx; color: #999; }
+

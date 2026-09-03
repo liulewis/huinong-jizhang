@@ -1,0 +1,76 @@
+.container { padding: 24rpx 32rpx; }
+
+.typebar { margin-bottom: 8rpx; }
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 4rpx;
+  border-bottom: 1rpx solid var(--line);
+}
+.field.col {
+  flex-direction: column;
+  align-items: stretch;
+}
+.label {
+  color: var(--text);
+  font-size: 28rpx;
+  font-weight: 600;
+  width: 160rpx;
+}
+.cat-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.manage {
+  color: var(--primary);
+  font-size: 24rpx;
+  margin-left: 24rpx;
+  background: var(--primary-soft);
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+}
+.input, .picker {
+  flex: 1;
+  text-align: right;
+  color: var(--text);
+}
+.field.col .input {
+  width: 100%;
+  text-align: left;
+  margin-top: 12rpx;
+  background: var(--surface-2);
+  border-radius: 12rpx;
+  padding: 18rpx 20rpx;
+  box-sizing: border-box;
+}
+/* 金额输入高亮 */
+.field.amount .input {
+  text-align: right;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.suggest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.suggest-tip { color: var(--muted); font-size: 24rpx; margin-right: 8rpx; }
+.chip {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: 24rpx;
+  padding: 12rpx 22rpx;
+  border-radius: 999rpx;
+  margin: 8rpx 8rpx 0 0;
+  transition: transform .12s ease;
+}
+.chip:active { transform: scale(.94); }
+
+.primary { margin-top: 48rpx; height: 92rpx; line-height: 92rpx; }

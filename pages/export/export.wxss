@@ -1,0 +1,29 @@
+.page { padding: 24rpx; }
+.card {
+  background: #fff; border-radius: 20rpx; padding: 24rpx;
+  margin-bottom: 20rpx; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.tip { font-size: 26rpx; color: #666; line-height: 1.6; }
+
+.scope-bar { display: flex; gap: 16rpx; margin-bottom: 20rpx; }
+.scope {
+  flex: 1; text-align: center; padding: 18rpx 0; border-radius: 16rpx;
+  background: #fff; font-size: 28rpx; color: #666; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.scope.active { background: #07c160; color: #fff; }
+
+.field { display: flex; align-items: center; }
+.field .label { width: 160rpx; font-size: 28rpx; color: #333; }
+.picker { flex: 1; text-align: right; font-size: 28rpx; color: #07c160; }
+
+.btn-primary { background: #07c160; color: #fff; border-radius: 44rpx; margin-top: 8rpx; font-size: 30rpx; }
+
+.result-head { display: flex; justify-content: space-between; align-items: center; font-size: 28rpx; }
+.result-head .link { color: #07c160; margin-left: 24rpx; }
+
+.table { padding: 0; overflow: hidden; }
+.tr { display: flex; padding: 16rpx 20rpx; border-bottom: 1rpx solid #f2f2f2; font-size: 24rpx; }
+.tr.th { background: #f7fbf8; font-weight: bold; color: #333; }
+.td { flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 8rpx; }
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.more { text-align: center; color: #999; font-size: 24rpx; padding: 20rpx; }

@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="typebar">
+    <view class="type {{type==='expense'?'active':''}}" data-type="expense" bindtap="switchType">支出</view>
+    <view class="type {{type==='income'?'active':''}}" data-type="income" bindtap="switchType">收入</view>
+  </view>
+
+  <view class="add-row">
+    <input class="input" placeholder="新增自定义分类" value="{{newName}}" bindinput="onName" />
+    <button class="add-btn" size="mini" bindtap="add">添加</button>
+  </view>
+
+  <view class="tip">预设分类不可删除，自定义分类可删除（不影响已记记录）</view>
+
+  <view wx:if="{{list.length === 0}}" class="empty">暂无分类</view>
+  <view wx:else class="grid">
+    <view wx:for="{{list}}" wx:key="name" class="item">
+      <text class="name">{{item.name}}</text>
+      <text wx:if="{{item.custom}}" class="del" data-id="{{item._id}}" bindtap="del">删除</text>
+      <text wx:else class="preset">预设</text>
+    </view>
+  </view>
+</view>

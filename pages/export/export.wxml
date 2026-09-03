@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="tip card">导出当前账本为 CSV 文本，可粘贴到 Excel 或保存为文件用电脑打开。</view>
+
+  <view class="scope-bar">
+    <view class="scope {{scope === 'month' ? 'active' : ''}}" bindtap="onScope" data-scope="month">按月</view>
+    <view class="scope {{scope === 'all' ? 'active' : ''}}" bindtap="onScope" data-scope="all">全部</view>
+  </view>
+
+  <view wx:if="{{scope === 'month'}}" class="field card">
+    <text class="label">选择月份</text>
+    <picker mode="selector" range="{{monthOptions}}" value="{{monthIndex}}" bindchange="onMonth">
+      <view class="picker">{{month}}</view>
+    </picker>
+  </view>
+
+  <button class="btn-primary" bindtap="generate">生成导出数据</button>
+
+  <view wx:if="{{count > 0}}" class="result">
+    <view class="result-head card">
+      <text>共 {{count}} 条记录</text>
+      <text class="link" bindtap="copy">复制</text>
+      <text class="link" bindtap="saveFile">保存文件</text>
+    </view>
+
+    <view class="table card">
+      <view class="tr th">
+        <text class="td">日期</text>
+        <text class="td">类型</text>
+        <text class="td">分类</text>
+        <text class="td">账户</text>
+        <text class="td">金额</text>
+        <text class="td">备注</text>
+      </view>
+      <view class="tr" wx:for="{{preview}}" wx:key="date">
+        <text class="td">{{item.date}}</text>
+        <text class="td">{{item.type}}</text>
+        <text class="td">{{item.category}}</text>
+        <text class="td">{{item.account}}</text>
+        <text class="td">{{item.amount}}</text>
+        <text class="td ellipsis">{{item.note}}</text>
+      </view>
+      <view wx:if="{{count > preview.length}}" class="more">仅预览前 {{preview.length}} 条，完整数据请用复制 / 保存文件</view>
+    </view>
+  </view>
+</view>

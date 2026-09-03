@@ -1,0 +1,9 @@
+{
+  "name": "getStat",
+  "version": "1.0.0",
+  "description": "统计收入/支出/结余与分类占比",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

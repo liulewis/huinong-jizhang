@@ -1,0 +1,9 @@
+{
+  "name": "getList",
+  "version": "1.0.0",
+  "description": "查询记账列表（按月份/类型/分类）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

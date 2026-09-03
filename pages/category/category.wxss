@@ -1,0 +1,69 @@
+.container { padding: 24rpx 32rpx; }
+
+.typebar { margin-bottom: 4rpx; }
+
+.add-row {
+  display: flex;
+  align-items: center;
+  margin: 28rpx 0 8rpx;
+}
+.input {
+  flex: 1;
+  border: 2rpx solid var(--line);
+  border-radius: 14rpx;
+  padding: 18rpx 22rpx;
+  margin-right: 16rpx;
+  font-size: 28rpx;
+  background: var(--surface);
+}
+.add-btn {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  padding: 0 36rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  transition: transform .12s ease;
+}
+.add-btn:active { transform: scale(.96); }
+
+.tip {
+  color: var(--muted);
+  font-size: 22rpx;
+  margin-bottom: 16rpx;
+  background: var(--primary-soft);
+  padding: 16rpx 20rpx;
+  border-radius: 12rpx;
+}
+
+.empty { text-align: center; color: var(--muted); padding: 80rpx 0; }
+
+/* 标签云 */
+.item {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 16rpx 16rpx 0;
+  padding: 16rpx 26rpx;
+  border-radius: 999rpx;
+  font-size: 28rpx;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 500;
+  transition: transform .12s ease;
+}
+.item:active { transform: scale(.95); }
+.item .del {
+  color: var(--danger);
+  font-size: 24rpx;
+  margin-left: 16rpx;
+}
+.item .preset {
+  color: var(--muted);
+  font-size: 22rpx;
+  margin-left: 12rpx;
+  border: 1rpx solid var(--line);
+  padding: 2rpx 12rpx;
+  border-radius: 999rpx;
+}
+.grid { display: flex; flex-wrap: wrap; padding-top: 8rpx; }

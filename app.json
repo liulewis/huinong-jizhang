@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/add/add",
+    "pages/bill/bill",
+    "pages/stat/stat",
+    "pages/category/category",
+    "pages/account/account",
+    "pages/budget/budget",
+    "pages/export/export"
+  ],
+  "window": {
+    "navigationBarTitleText": "慧农记账本",
+    "navigationBarBackgroundColor": "#07c160",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f7f7f7"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页", "iconPath": "images/home.png", "selectedIconPath": "images/home-active.png" },
+      { "pagePath": "pages/add/add", "text": "记一笔", "iconPath": "images/add.png", "selectedIconPath": "images/add-active.png" },
+      { "pagePath": "pages/bill/bill", "text": "账单", "iconPath": "images/bill.png", "selectedIconPath": "images/bill-active.png" },
+      { "pagePath": "pages/stat/stat", "text": "统计", "iconPath": "images/stat.png", "selectedIconPath": "images/stat-active.png" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

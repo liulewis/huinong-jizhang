@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="topbar">
+    <picker mode="selector" range="{{monthOptions}}" value="{{monthIndex}}" bindchange="onMonth">
+      <view class="month"><text class="ico">🗓️</text>账单月份：{{month}} ▾</view>
+    </picker>
+    <view class="search-btn" bindtap="toggleSearch">{{showSearch ? '收起' : '搜索'}}</view>
+  </view>
+
+  <!-- 搜索面板 -->
+  <view wx:if="{{showSearch}}" class="search-panel">
+    <view class="s-field">
+      <text class="s-label">关键词</text>
+      <input class="s-input" placeholder="备注/分类/作物" value="{{search.keyword}}" bindinput="onKeyword"/>
+    </view>
+    <view class="s-field">
+      <text class="s-label">类型</text>
+      <picker mode="selector" range="{{typeLabels}}" value="{{typeIndex}}" bindchange="onType">
+        <view class="s-picker">{{typeLabels[typeIndex]}}</view>
+      </picker>
+    </view>
+    <view class="s-field">
+      <text class="s-label">分类</text>
+      <picker mode="selector" range="{{categoryOptions}}" value="{{categoryIndex}}" bindchange="onCategory">
+        <view class="s-picker">{{categoryOptions[categoryIndex]}}</view>
+      </picker>
+    </view>
+    <view class="s-field">
+      <text class="s-label">账户</text>
+      <picker mode="selector" range="{{accountOptions}}" value="{{accountIndex}}" bindchange="onAccount">
+        <view class="s-picker">{{accountOptions[accountIndex]}}</view>
+      </picker>
+    </view>
+    <view class="s-field">
+      <text class="s-label">起止</text>
+      <view class="s-range">
+        <input class="s-date" type="date" value="{{search.start}}" bindinput="onStart" placeholder="开始"/>
+        <text class="s-sep">至</text>
+        <input class="s-date" type="date" value="{{search.end}}" bindinput="onEnd" placeholder="结束"/>
+      </view>
+    </view>
+    <view class="s-actions">
+      <text class="s-clear" bindtap="clearSearch">清空</text>
+      <text class="s-count">命中 {{list.length}} 条 · 合计 {{filteredTotal}} 元</text>
+    </view>
+  </view>
+
+  <view wx:if="{{list.length === 0}}" class="empty">没有符合条件的记录</view>
+  <view wx:for="{{list}}" wx:key="_id" class="item">
+    <view class="left">
+      <view class="ava {{item.type === 'income' ? 'income' : 'expense'}}">{{item.type === 'income' ? '💰' : '🌱'}}</view>
+      <view>
+        <view class="cat">{{item.category}}{{item.cropTag ? (' · ' + item.cropTag) : ''}}</view>
+        <view class="date">{{item.date}}{{item.account ? (' · ' + item.account) : ''}}</view>
+      </view>
+    </view>
+    <view class="right">
+      <text class="{{item.type === 'income' ? 'inc' : 'exp'}}">{{item.type === 'income' ? '+' : ''}}{{item.amount}}</text>
+      <text class="del" data-id="{{item._id}}" bindtap="del">删除</text>
+    </view>
+  </view>
+</view>

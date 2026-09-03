@@ -1,0 +1,9 @@
+{
+  "name": "getTrend",
+  "version": "1.0.0",
+  "description": "慧农记账本 - 近6月收支趋势",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

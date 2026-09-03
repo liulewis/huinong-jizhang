@@ -1,0 +1,9 @@
+{
+  "name": "categoryOps",
+  "version": "1.0.0",
+  "description": "慧农记账本 - 分类管理（get/add/delete）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

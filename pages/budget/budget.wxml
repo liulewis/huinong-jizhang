@@ -1,0 +1,50 @@
+<view class="page">
+  <!-- 总预算进度 -->
+  <view class="card progress-card">
+    <view class="row-between">
+      <text class="title">{{month}} 支出预算</text>
+      <text class="edit" bindtap="openEditTotal">设置</text>
+    </view>
+    <view class="big">已用 {{usedText}} / 预算 {{totalText}}</view>
+    <view class="bar">
+      <view class="bar-fill {{over ? 'over' : ''}}" style="width:{{pct}}%"></view>
+    </view>
+    <view class="pct {{over ? 'over-text' : ''}}">
+      {{over ? '已超支 ' + pct + '%' : '已使用 ' + pct + '%'}}
+    </view>
+  </view>
+
+  <view class="section-title">分类预算</view>
+  <view wx:if="{{items.length === 0}}" class="empty">暂无分类预算，先在上方设置总预算</view>
+
+  <view class="cat-card card" wx:for="{{items}}" wx:key="category">
+    <view class="cat-head">
+      <text class="cat-name">{{item.category}}</text>
+      <text class="cat-used {{item.over ? 'over-text' : ''}}">已用 {{item.used}} / 限额 {{item.amount}}</text>
+    </view>
+    <view class="bar">
+      <view class="bar-fill {{item.over ? 'over' : ''}}" style="width:{{item.pct}}%"></view>
+    </view>
+    <view class="cat-edit">
+      <text class="label">限额(元)</text>
+      <input class="mini-input" type="digit" value="{{item.amount}}" data-idx="{{index}}" bindinput="onItemAmount"/>
+    </view>
+  </view>
+
+  <button wx:if="{{items.length > 0}}" class="btn-primary" bindtap="saveItems">保存分类限额</button>
+
+  <!-- 设置总预算弹层 -->
+  <view wx:if="{{editingTotal}}" class="mask" bindtap="closeEditTotal">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-title">设置 {{month}} 总预算</view>
+      <view class="field">
+        <text class="label">月度总支出预算</text>
+        <input class="input" type="digit" placeholder="0.00" value="{{total}}" bindinput="onTotal"/>
+      </view>
+      <view class="sheet-actions">
+        <button class="btn-ghost" bindtap="closeEditTotal">取消</button>
+        <button class="btn-primary" bindtap="saveTotal">保存</button>
+      </view>
+    </view>
+  </view>
+</view>

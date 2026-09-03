@@ -1,0 +1,111 @@
+.container { padding: 24rpx; }
+
+/* 汇总条 */
+.summary {
+  background: linear-gradient(135deg, #07c160, #19c471);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  color: #fff;
+  box-shadow: 0 12rpx 28rpx rgba(7, 193, 96, .22);
+}
+.summary .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14rpx 0;
+  font-size: 30rpx;
+}
+.summary .row .k { opacity: .9; font-size: 26rpx; }
+.inc { color: #eafff2; font-weight: 700; font-size: 34rpx; }
+.exp { color: #fff3ea; font-weight: 700; font-size: 34rpx; }
+
+.block {
+  margin-top: 24rpx;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28rpx;
+  box-shadow: var(--shadow-sm);
+}
+.block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.title { font-size: 30rpx; font-weight: 700; color: var(--text); }
+
+.donut { width: 100%; height: 320rpx; }
+.trend { width: 100%; height: 360rpx; }
+
+.empty { color: var(--muted); text-align: center; padding: 24rpx 0; font-size: 26rpx; }
+
+.legend {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  font-size: 26rpx;
+  border-top: 1rpx solid var(--line);
+}
+.dot {
+  width: 20rpx; height: 20rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+.lg-name { flex: 1; color: var(--text); font-weight: 500; }
+.lg-val { color: var(--text-2); margin-right: 24rpx; }
+.lg-pct { width: 80rpx; text-align: right; color: var(--muted); }
+
+.trend-legend {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: var(--text-2);
+}
+.trend-legend .dot { margin-right: 8rpx; }
+.trend-legend text { margin-right: 28rpx; }
+
+/* 近 6 月对比表 */
+.tbl { border: 1rpx solid #f0f0f0; border-radius: 14rpx; overflow: hidden; margin-top: 8rpx; }
+.trow { display: flex; }
+.trow.th { background: #f7fbf8; font-weight: 600; }
+.tc { flex: 1; text-align: center; padding: 18rpx 4rpx; font-size: 24rpx; border-bottom: 1rpx solid #f0f0f0; color: #555; }
+.trow:last-child .tc { border-bottom: none; }
+.t-inc { color: #07c160; font-weight: 600; }
+.t-exp { color: #e64340; font-weight: 600; }
+
+/* 预算执行对比 */
+.budget-row {
+  padding: 18rpx 0;
+  border-top: 1rpx solid var(--line);
+}
+.budget-row:first-child { border-top: none; }
+.br-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+.br-cat { font-size: 28rpx; color: var(--text); font-weight: 500; }
+.br-val { font-size: 24rpx; color: var(--text-2); }
+.br-bar {
+  height: 16rpx;
+  background: var(--line);
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.br-fill {
+  height: 100%;
+  background: #07c160;
+  border-radius: 8rpx;
+  transition: width .3s ease;
+}
+.br-fill.over { background: #e64340; }
+.br-pct {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--muted);
+}
+.br-pct.over { color: #e64340; font-weight: 600; }

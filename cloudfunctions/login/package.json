@@ -1,0 +1,9 @@
+{
+  "name": "login",
+  "description": "慧农记账本(家庭/个体农户记账) 的云开发登录函数：获取用户 openid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

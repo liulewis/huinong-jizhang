@@ -1,0 +1,164 @@
+/* ============ 慧农记账本 · 视觉设计系统 ============ */
+page {
+/* 慧农记账本 · 设计令牌 */
+  --bg: #f3f7f3;
+  --surface: #ffffff;
+  --surface-2: #f6faf6;
+  --primary: #07c160;          /* 农业绿 */
+  --primary-dark: #059a4e;
+  --primary-soft: #e7f8ed;
+  --accent: #ff8f4d;           /* 慧农记账本 · 支出暖橙 */
+  --income: #07c160;           /* 慧农记账本 · 主色/收入 */
+  --expense: #ff6b35;          /* 慧农记账本 · 支出/强调色 */
+  --text: #1d2b22;
+  --text-2: #5a6b60;
+  --muted: #98a79d;
+  --line: #eef2ee;
+  --danger: #e64340;
+  --radius: 24rpx;
+  --radius-sm: 16rpx;
+  --shadow: 0 8rpx 24rpx rgba(7, 193, 96, .10);
+  --shadow-sm: 0 2rpx 12rpx rgba(31, 45, 35, .05);
+  --gap: 20rpx;
+
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.container { padding: 24rpx; box-sizing: border-box; }
+
+/* 慧农记账本 · 卡片 */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28rpx;
+  margin-bottom: var(--gap);
+  box-shadow: var(--shadow-sm);
+}
+.card.flush { padding: 0; overflow: hidden; }
+
+/* 慧农记账本 · 主按钮（渐变胶囊 + 按压反馈） */
+.btn-primary, .primary {
+  background: linear-gradient(135deg, var(--primary), #19c471);
+  color: #fff;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 10rpx 24rpx rgba(7, 193, 96, .28);
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.btn-primary:active, .primary:active { transform: scale(.97); opacity: .92; box-shadow: 0 4rpx 12rpx rgba(7, 193, 96, .25); }
+
+.btn-ghost {
+  background: var(--surface);
+  color: var(--primary);
+  border: 2rpx solid var(--primary);
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  transition: transform .15s ease;
+}
+.btn-ghost:active { transform: scale(.97); }
+
+/* 慧农记账本 · 分段控制器 */
+.seg, .typebar {
+  display: inline-flex;
+  background: var(--primary-soft);
+  border-radius: 999rpx;
+  padding: 6rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.seg-item, .type {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: var(--text-2);
+  border-radius: 999rpx;
+  transition: all .2s ease;
+}
+.seg-item.active, .type.active {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(7, 193, 96, .3);
+}
+
+/* 慧农记账本 · 章节标题与图标 */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text);
+  margin: 8rpx 8rpx 16rpx;
+}
+.section-title .ico { font-size: 32rpx; }
+
+.muted { color: var(--muted); font-size: 24rpx; }
+.tip { color: var(--muted); font-size: 24rpx; text-align: center; margin-top: 24rpx; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.badge {
+  min-width: 36rpx;
+  height: 36rpx;
+  padding: 0 10rpx;
+  border-radius: 999rpx;
+  background: var(--accent);
+  color: #fff;
+  font-size: 22rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 80rpx 0;
+  font-size: 28rpx;
+}
+.empty .em-ico { font-size: 64rpx; display: block; margin-bottom: 12rpx; }
+
+.input, .picker { font-size: 30rpx; color: var(--text); }
+
+/* 慧农记账本 · 悬浮快捷按钮 */
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #19c471);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+  box-shadow: 0 12rpx 28rpx rgba(7, 193, 96, .4);
+  z-index: 50;
+  transition: transform .15s ease;
+}
+.fab:active { transform: scale(.92); }
+
+/* 慧农记账本 · 通用动画 */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20rpx); } to { opacity: 1; transform: translateY(0); } }
+.anim-up { animation: fadeUp .45s ease both; }
+@keyframes pop { 0% { transform: scale(.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.anim-pop { animation: pop .3s ease both; }
+.hairline { border-bottom: 1rpx solid var(--line); }

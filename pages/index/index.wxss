@@ -1,0 +1,108 @@
+.container { padding: 24rpx; }
+
+/* 英雄区：本月结余 */
+.hero {
+  background: linear-gradient(135deg, #07c160, #19c471 70%, #4fd687);
+  color: #fff;
+  border-radius: 28rpx;
+  padding: 44rpx 36rpx 36rpx;
+  text-align: center;
+  box-shadow: 0 16rpx 36rpx rgba(7, 193, 96, .25);
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -60rpx; top: -60rpx;
+  width: 220rpx; height: 220rpx;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 50%;
+}
+.hero-label { font-size: 26rpx; opacity: .9; }
+.balance {
+  font-size: 72rpx;
+  font-weight: 800;
+  letter-spacing: 1rpx;
+  margin: 8rpx 0 24rpx;
+  position: relative;
+}
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .18);
+  border-radius: 18rpx;
+  padding: 18rpx 0;
+}
+.hs { flex: 1; display: flex; flex-direction: column; gap: 6rpx; }
+.hs-lab { font-size: 24rpx; opacity: .9; }
+.hs-val { font-size: 34rpx; font-weight: 700; }
+.hs-val.inc { color: #eafff2; }
+.hs-val.exp { color: #fff3ea; }
+.hs-div { width: 1rpx; height: 56rpx; background: rgba(255, 255, 255, .3); }
+
+/* 慧农记账本 · 快捷入口 */
+.quick-grid {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 24rpx;
+}
+.q-card {
+  flex: 1;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28rpx 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease;
+}
+.q-card:active { transform: scale(.96); }
+.q-ico { font-size: 48rpx; }
+.q-t { font-size: 26rpx; color: var(--text-2); margin-top: 8rpx; }
+
+/* 提示卡 */
+.note {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  color: var(--text-2);
+  font-size: 24rpx;
+  background: var(--primary-soft);
+  box-shadow: none;
+}
+
+.primary {
+  margin-top: 40rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+}
+
+/* 账户总览 + 预算进度 */
+.overview { margin-top: 24rpx; padding: 24rpx 28rpx; }
+.ov-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12rpx 0; font-size: 28rpx;
+}
+.ov-label { color: #555; }
+.ov-value { color: #333; font-weight: 600; }
+.ov-arrow { color: #bbb; margin-left: 6rpx; }
+.ov-bar { height: 14rpx; background: #eee; border-radius: 8rpx; overflow: hidden; margin-top: 12rpx; }
+.ov-fill { height: 100%; background: #07c160; border-radius: 8rpx; }
+.ov-fill.over { background: #e64340; }
+.ov-pct { font-size: 22rpx; color: #07c160; margin-top: 8rpx; }
+.ov-pct.over { color: #e64340; }
+
+/* 最近记录 */
+.recent { margin-top: 24rpx; padding: 24rpx 28rpx; }
+.rec-head { font-size: 28rpx; font-weight: 600; color: #333; margin-bottom: 12rpx; }
+.rec-item {
+  display: flex; align-items: center; padding: 16rpx 0; border-bottom: 1rpx solid #f3f3f3; font-size: 26rpx;
+}
+.rec-item:last-child { border-bottom: none; }
+.rec-cat { flex: 1; color: #333; }
+.rec-date { color: #999; width: 120rpx; text-align: center; }
+.rec-amt { width: 160rpx; text-align: right; font-weight: 600; }
+.rec-amt.inc { color: #07c160; }
+.rec-amt.exp { color: #e64340; }
+

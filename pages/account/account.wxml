@@ -1,0 +1,59 @@
+<view class="page">
+  <view class="summary card">
+    <view class="summary-label">账户总资产（元）</view>
+    <view class="summary-value">{{totalBalance}}</view>
+  </view>
+
+  <view class="section-title">我的账户（{{list.length}}）</view>
+
+  <view wx:if="{{list.length === 0}}" class="empty">还没有账户，点下方按钮添加第一个账户</view>
+
+  <view class="acc-card card" wx:for="{{list}}" wx:key="_id">
+    <view class="acc-icon">{{item.icon}}</view>
+    <view class="acc-main">
+      <view class="acc-name">
+        {{item.name}}
+        <text wx:if="{{item.isDefault}}" class="tag-default">默认</text>
+      </view>
+      <view class="acc-type">{{item.typeLabel}}</view>
+      <view class="acc-month">本月 收 {{item.monthIn || '0.00'}} / 支 {{item.monthOut || '0.00'}}</view>
+    </view>
+    <view class="acc-balance">{{item.balanceText}}</view>
+    <view class="acc-ops">
+      <text class="op" wx:if="{{!item.isDefault}}" bindtap="setDefault" data-id="{{item._id}}">默认</text>
+      <text class="op" bindtap="openEdit" data-id="{{item._id}}">编辑</text>
+      <text class="op danger" bindtap="remove" data-id="{{item._id}}">删</text>
+    </view>
+  </view>
+
+  <button class="btn-primary" bindtap="openAdd">+ 添加账户</button>
+
+  <!-- 新增 / 编辑弹层 -->
+  <view wx:if="{{showForm}}" class="mask" bindtap="closeForm">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-title">{{editingId ? '编辑账户' : '添加账户'}}</view>
+
+      <view class="field">
+        <text class="label">账户名称</text>
+        <input class="input" placeholder="如：现金钱包" value="{{form.name}}" bindinput="onName" maxlength="20"/>
+      </view>
+
+      <view class="field">
+        <text class="label">账户类型</text>
+        <picker mode="selector" range="{{typeLabels}}" value="{{typeIndex}}" bindchange="onType">
+          <view class="picker">{{typeLabels[typeIndex]}}</view>
+        </picker>
+      </view>
+
+      <view class="field">
+        <text class="label">当前余额（元）</text>
+        <input class="input" type="digit" placeholder="0.00" value="{{form.balance}}" bindinput="onBalance"/>
+      </view>
+
+      <view class="sheet-actions">
+        <button class="btn-ghost" bindtap="closeForm">取消</button>
+        <button class="btn-primary" bindtap="save">保存</button>
+      </view>
+    </view>
+  </view>
+</view>
